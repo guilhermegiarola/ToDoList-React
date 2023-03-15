@@ -7,7 +7,7 @@ const ListElement = (props) => {
   }
 
   return (
-    <div>
+    <div style={{ margin: "10px" }}>
       {props.taskList.map((item) => {
         return (
           <Element item={item} markedAsDone={markedAsDone}>

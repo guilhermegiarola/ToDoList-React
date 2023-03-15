@@ -5,7 +5,7 @@ const TasksDone = (props) => {
   let undoneTasks = props.taskList.filter((item) => item.isDone === false);
 
   return (
-    <div>
+    <div style={{ margin: "10px" }}>
       There are {doneTasks.length} done tasks and {undoneTasks.length} undone
       tasks.
     </div>

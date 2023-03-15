@@ -12,7 +12,7 @@ const Element = (props) => {
         markAsDone(e);
       }}
     >
-      <ul>{props.children}</ul>
+      <li>{props.children}</li>
     </div>
   );
 };

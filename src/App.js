@@ -25,7 +25,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div style={{ margin: "10px" }}>
       <InputHandler getInputText={getInputText} />
       <TasksDone taskList={taskList} />
       <ListElement taskList={taskList} getElementToMark={getElementToMark} />

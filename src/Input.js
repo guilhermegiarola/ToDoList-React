@@ -9,17 +9,15 @@ const InputHandler = (props) => {
 
   function submitHandler() {
     let inputFieldText = inputText;
-    props.getInputText(inputFieldText);
-    setInputText("");
+    if (inputFieldText !== "") {
+      props.getInputText(inputFieldText);
+      setInputText("");
+    }
   }
 
   return (
     <div>
-      <input
-        value={inputText}
-        style={{ margin: "10px" }}
-        onChange={(e) => onType(e)}
-      ></input>
+      <input value={inputText} onChange={(e) => onType(e)}></input>
       <button onClick={() => submitHandler()}>Submit</button>
     </div>
   );
