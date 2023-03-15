@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import InputHandler from "./Input";
+import ListElement from "./ListElement";
+import TasksDone from "./TasksDone";
 
 function App() {
+  let [taskList, setTaskList] = useState([]);
+
+  function getInputText(input) {
+    setTaskList([
+      ...taskList,
+      { id: taskList.length + 1, text: input, isDone: false },
+    ]);
+  }
+
+  function getElementToMark(item) {
+    const updatedTaskList = taskList.map((obj) => {
+      if (obj.id === item.id) {
+        obj.isDone = true;
+      }
+      return obj;
+    });
+    setTaskList(updatedTaskList);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <InputHandler getInputText={getInputText} />
+      <TasksDone taskList={taskList} />
+      <ListElement taskList={taskList} getElementToMark={getElementToMark} />
     </div>
   );
 }
